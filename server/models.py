@@ -10,6 +10,7 @@ class EmailAddress(db.Model):
     backup_email = db.Column(db.String)
 
     @validates('email', 'backup_email')
+    
     def validate_email(self, key, address):
         if '@' not in address:
             raise ValueError("Failed simple email validation")
